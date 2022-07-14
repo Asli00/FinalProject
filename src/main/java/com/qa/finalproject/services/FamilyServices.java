@@ -1,5 +1,14 @@
 package com.qa.finalproject.services;
 
-public class FamilyServices {
+import org.springframework.stereotype.Service;
 
+@Service
+public class FamilyServices {
+private FamilyRepo repo
+	
+	
+	
+	
+	
+	
 }
