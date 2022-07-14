@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.finalproject.entities.Family;
+import com.qa.finalproject.services.FamilyServices;
 
 import antlr.collections.List;
 
@@ -19,35 +20,43 @@ import antlr.collections.List;
 @RequestMapping("/family")
 public class FamilyController {
 
-	private List <family> family = new ArrayList<>();
+	private FamilyServices service;
+	
+	public FamilyController(FamilyServices service) {
+		this.service = service;
+		
+	}
 	
 	@GetMapping("/readAll")
-	public List readALL() {
-		return this.family;
+	public List<Family> readALL() {
+		return this.service.readAll();
 		
 	}
 	
 	@GetMapping("/readById/{id")
-	public Family readById(@PathVariable int id) {
-		return this.family.get(id);
+	public Family readById(@PathVariable long id) {
+		return this.service.readById(id);
+	}
+	
+	@GetMapping("/readByFather/{father}")
+	public List<Family> readByFather(@PathVariable String Father) {
+		return this.service.readByFather(Father);
+		
 	}
 	
 	@PostMapping("/create")
 	public Family craete(@RequestBody Family family) {
-		
+		return this.service.create(family);
 	}
 	
     @PutMapping("/update/{id}")
-	public Family update(@PathVariable int id, @RequestBody Family family) {
-    	this.family.remove(id);
-    	this.family.add(id, family);
-    	return this.family.get(id);
-    	
+	public Family update(@PathVariable long id, @RequestBody Family family) {
+    	return this.service.update(id, family);	
     }
 	
-    @DeleteMapping
-    public Family delete(@PathVariable int id) {
-    	
+    @DeleteMapping("/delete/{id}")
+    public boolean delete(@PathVariable long id) {
+    	return this.service.delete(id);
     }
 	
 	
