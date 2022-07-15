@@ -37,12 +37,8 @@ public class FamilyController {
 	public Family readById(@PathVariable long id) {
 		return this.service.readById(id);
 	}
-	
-	@GetMapping("/readByFather/{father}")
-	public List<Family> readByFather(@PathVariable String Father) {
-		return this.service.readByFather(Father);
-		
-	}
+
+
 	
 	@PostMapping("/create")
 	public Family craete(@RequestBody Family family) {

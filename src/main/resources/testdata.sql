@@ -1,0 +1,1 @@
+INSERT INFO `family(`father`, `mother`, `child`) VALUES (`Sebastian`, `Jasmine`, `Edward`);

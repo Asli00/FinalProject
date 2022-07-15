@@ -39,7 +39,6 @@ public class FamilyServices {
 	public Family update(long id, Family family) {
 		
 		Family existing = this.repo.findById(id).get();
-		
 		existing.setFather(family.getFather());
 		existing.setMother(family.getMother());
 		existing.setChild(family.getChild());
