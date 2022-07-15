@@ -59,14 +59,15 @@ public class Family {
 		this.father = father;
 	}
 	
-	public String getMother(String mother) {
-		return mother;	
-	}
 	
+	public String getMother() {
+		return mother;
+	}
+
 	public void setMother(String mother) {
-		
+		this.mother = mother;
 	}
-	
+
 	public String getChild() {
 		return child;
 	}

@@ -1,6 +1,7 @@
 package com.qa.finalproject.controllers;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.qa.finalproject.entities.Family;
 import com.qa.finalproject.services.FamilyServices;
 
-import antlr.collections.List;
 
 @RestController
 @RequestMapping("/family")
@@ -33,7 +33,7 @@ public class FamilyController {
 		
 	}
 	
-	@GetMapping("/readById/{id")
+	@GetMapping("/readById/{id}")
 	public Family readById(@PathVariable long id) {
 		return this.service.readById(id);
 	}
